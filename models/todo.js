@@ -17,7 +17,8 @@ const todo = {
 
 	async insert(params) {
 		if (!params) return -1;
-		if (!params['value'] || !params['uid'] || !params['complete']) return -1;
+
+		if (params['value'] === undefined || params['uid'] === undefined || params['complete'] === undefined) return -1;
 
 		let sql = sqlString.format(
 			`
